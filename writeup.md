@@ -100,3 +100,5 @@ Eventough the discribed algorithm performs well on the project video, it may fai
 * **Overlapping objects**: If objects are overlapping in the video, the heatmap fails to distinguish between the two objects. NMS may perform better in finding maxima of overlapping objects in the heatmap.
 
 * **Computation time**: At this point, the algorithm is too slow to be used to detect vehicles in real time applications. Integral images may help to boost the performance.
+
+* **Frame averaging**: As implemented, 30 frames are averaged to get a smooth detection of cars, and reduce false positives and gaps in the detection. The downside is, that the detection can be still active eventough the car has been occluded for a cupple of frames or left the FOV. Furthermore, the car needs to be in the FOV for a couple of frames to be detected, because a threshold of `30` overlapping bounding boxes was choosen.
